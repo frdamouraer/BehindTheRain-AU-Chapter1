@@ -21,7 +21,7 @@ const scenes = [
 "Dia suka tenggelam di dunia yang sudah dikenalnya: karakter-karakternya, ceritanya, dan hal-hal kecil yang mungkin bagi orang lain nggak penting-penting amat.",
 "Suatu hari, saat sedang melihat TikTok, dia menemukan akun yang membagikan undangan ke grup Potterhead. Buat Emon, itu terdengar seperti tempat yang pas untuk bertemu orang-orang dengan kegemaran yang sama.",
 "Waktu itu, dia cuma ingin punya tempat buat ngobrolin Harry Potter. Dia belum tahu kalau sebuah undangan sederhana bakal jadi titik awal dari cerita yang akan dia ingat bertahun-tahun kemudian."
-],social:{type:"tweet",items:[{name:"EMON",handle:"@monologmalam",avatar:"E",text:"Harry Potter lagi, Harry Potter lagi. Belum bosen juga WKWK",time:"2022 · tweet lama",meta:["♡ 12","↻ 3","💬 5"]}]},note:"Sebuah minat membawa Emon ke komunitas baru."},
+],social:{type:"tweet",items:[{name:"EMON",handle:"@monologmalam",avatar:"E",text:"aneh ya, ada orang yang bisa bikin hari biasa jadi bahan pikiran semaleman.",time:"2022 · tweet lama",meta:["♡ 12","↻ 3","💬 5"],comments:[{name:"LUNA",handle:"@moonlitowl",text:"ciee, tumben tweet-nya puitis begini 👀"},{name:"RAVEN",handle:"@ravenafterdark",text:"ada yang lagi kamu pikirin, Mon? WKWK"}]}]},note:"Sebuah minat membawa Emon ke komunitas baru."},
 {era:"2022 · POTTERHEAD ERA",title:"The Invitation",narration:[
 "Akun itu membagikan undangan grup untuk para Potterhead. Emon melihatnya, membaca sebentar, lalu bergabung.",
 "Nggak ada rencana besar di balik keputusannya. Dia nggak sedang mencari seseorang untuk disukai. Dia bahkan nggak membayangkan bakal punya cerita personal dari grup itu.",
@@ -69,7 +69,7 @@ const scenes = [
 "Dia juga masih labil dalam menghadapi emosinya sendiri. Kalau senang, dia bisa terlalu terbuka. Kalau mulai kepikiran, pikirannya bisa berputar-putar mencari arti dari hal yang sebenarnya belum tentu punya makna tersembunyi.",
 "Ketika Ruby sedang tidak punya pacar, candaan lama itu terasa punya kemungkinan baru. Emon mulai membayangkan apakah dia sebaiknya mengatakan perasaannya dengan sungguh-sungguh.",
 "Masalahnya, mengatakan sesuatu dengan serius berarti dia nggak bisa lagi berlindung di balik kalimat “cuma bercanda” kalau jawabannya ternyata menyakitkan."
-],social:{type:"tweet",items:[{name:"EMON",handle:"@monologmalam",avatar:"E",text:"kadang yang paling susah itu bedain bercanda sama berharap sendiri.",time:"2022 · tweet lama",meta:["♡ 18","↻ 4","💬 6"]}]},note:"Tweet menggambarkan pikiran Emon, bukan kutipan dari akun nyata."},
+],social:{type:"tweet",items:[{name:"EMON",handle:"@monologmalam",avatar:"E",text:"kadang yang paling susah itu bedain bercanda sama berharap sendiri.",time:"2022 · tweet lama",meta:["♡ 18","↻ 4","💬 6"],comments:[{name:"MIRA",handle:"@miraonmonday",text:"jangan kalah sama pikiran sendiri ya 😭"},{name:"LUNA",handle:"@moonlitowl",text:"ini pasti ada orangnya wkwkwk"}]}]},note:"Tweet menggambarkan pikiran Emon, bukan kutipan dari akun nyata."},
 {era:"2022 · BEFORE THE CONFESSION",title:"Maybe This Time",narration:[
 "Emon bukan tiba-tiba berubah menjadi orang yang pandai mengungkapkan perasaan. Dia tetap orang yang gampang salting, kadang alay, dan sering menyelipkan keseriusan di balik candaan.",
 "Dia sudah beberapa kali menggoda Ruby soal pacaran. Karena itu, mengungkapkan perasaan dengan sungguh-sungguh terasa lebih sulit daripada yang dia bayangkan. Ruby bisa saja mengira dia sedang bercanda lagi.",
@@ -99,7 +99,7 @@ const scenes = [
 "Kadang harapan itu muncul kembali setelah obrolan yang menyenangkan. Kadang dia kembali menggoda Ruby dengan candaan lama, berharap mungkin kali ini situasinya berbeda.",
 "Tapi perasaan Ruby tidak berubah menjadi hubungan yang Emon inginkan. Dia tetap tidak membalas perasaan itu secara romantis.",
 "Karena detail percakapan lainnya sudah tidak utuh di ingatan, bagian-bagian itu tidak perlu dipenuhi dengan chat palsu yang seolah-olah persis terjadi. Yang tersisa adalah pola yang dia ingat: mencoba, berharap, lalu belajar menerima jawaban yang sama."
-],social:{type:"tweet",items:[{name:"EMON",handle:"@monologmalam",avatar:"E",text:"ada hal yang harus diterima meski kita belum benar-benar siap.",time:"2022 · memory fragment",meta:["♡ 9","↻ 2","💬 1"]}]},note:"Usaha berulang diringkas; tidak dibuatkan transkrip penolakan palsu."},
+],social:{type:"tweet",items:[{name:"EMON",handle:"@monologmalam",avatar:"E",text:"ada hal yang harus diterima meski kita belum benar-benar siap.",time:"2022 · memory fragment",meta:["♡ 9","↻ 2","💬 1"],comments:[{name:"RAVEN",handle:"@ravenafterdark",text:"pelan-pelan aja, Mon. nggak semua hal harus selesai hari ini."},{name:"MIRA",handle:"@miraonmonday",text:"semoga nanti kamu bisa lebih ikhlas ya."}]}]},note:"Usaha berulang diringkas; tidak dibuatkan transkrip penolakan palsu."},
 {era:"2022 · AFTER THE CONFESSION",title:"We Were Still Friends",narration:[
 "Hal yang mungkin Emon belum pahami waktu itu adalah bahwa penolakan tidak selalu berarti sebuah pertemanan harus ikut berakhir.",
 "Setelah pengakuan itu, mereka masih berteman. Mereka masih bisa mengobrol, bercanda, dan membahas hal-hal sehari-hari seperti sebelumnya. Tidak ada perpisahan besar yang langsung menutup semua komunikasi.",
@@ -158,6 +158,21 @@ function renderSocial(s){
    const body=document.createElement("div");body.className="tweet-text";body.textContent=item.text;card.append(body);
    if(item.time||item.meta){const meta=document.createElement("div");meta.className="tweet-meta";if(item.time){const time=document.createElement("span");time.textContent=item.time;meta.append(time)}(item.meta||[]).forEach(m=>{const x=document.createElement("span");x.textContent=m;meta.append(x)});card.append(meta)}
    content.append(card);
+   if(item.comments && item.comments.length){
+    const replies=document.createElement("div");replies.className="tweet-comments";replies.setAttribute("aria-label","Dua komentar dari akun lain");
+    item.comments.slice(0,2).forEach(comment=>{
+     const row=document.createElement("article");row.className="tweet-comment";
+     const avatar=makeAvatar(comment.name,comment.name.slice(0,1));avatar.classList.add("comment-avatar");
+     const body=document.createElement("div");body.className="comment-body";
+     const identity=document.createElement("div");identity.className="comment-identity";
+     const name=document.createElement("strong");name.textContent=comment.name;
+     const handle=document.createElement("small");handle.textContent=comment.handle;
+     identity.append(name,handle);
+     const text=document.createElement("p");text.textContent=comment.text;
+     body.append(identity,text);row.append(avatar,body);replies.append(row);
+    });
+    content.append(replies);
+   }
   });
  }else if(social.type==="dm"){
   $("socialType").textContent="DIRECT MESSAGE";$("socialCaption").textContent=social.subtitle||"PRIVATE CONVERSATION";
@@ -174,6 +189,8 @@ function renderSocial(s){
 }
 function renderScene(){
  const s=scenes[sceneIndex];$("sceneEra").textContent=s.era;$("eraLabel").textContent=s.era;$("sceneTitle").textContent=s.title;
+ const era=s.era||"";
+ document.body.dataset.theme=era.includes("CONFESSION")?"confession":era.includes("FIRST DM")||era.includes("GETTING CLOSER")?"connection":era.includes("LEAVING")||era.includes("AFTER LEAVING")?"afterglow":era.includes("FLASHBACK")||era.includes("POTTERHEAD")?"memory":"present";
  const narrative=$("narrative");narrative.replaceChildren(...s.narration.map(t=>{const p=document.createElement("p");p.textContent=t;return p}));
  // Re-trigger the entrance animation for both narration and social cards.
  $("narrativeCard").classList.remove("re-enter");void $("narrativeCard").offsetWidth;$("narrativeCard").classList.add("re-enter");
@@ -185,8 +202,30 @@ function renderScene(){
  $("nextScene").innerHTML=sceneIndex===scenes.length-1?'Penutup Chapter 1 <span>→</span>':'Lanjut <span>→</span>';
  window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
 }
-function nextScene(){if(sceneIndex<scenes.length-1){sceneIndex++;renderScene()}else showScreen("ending")}
-function prevScene(){if(sceneIndex>0){sceneIndex--;renderScene()}}
+let transitionBusy=false;
+function moveScene(direction){
+ if(transitionBusy)return;
+ if(direction==="next"&&sceneIndex>=scenes.length-1){showScreen("ending");return}
+ if(direction==="prev"&&sceneIndex<=0)return;
+ transitionBusy=true;
+ const story=$("story");
+ story.classList.remove("transition-in-next","transition-in-prev","transition-out-next","transition-out-prev");
+ story.classList.add(direction==="next"?"transition-out-next":"transition-out-prev");
+ const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+ const wait=reduced?0:190;
+ setTimeout(()=>{
+  sceneIndex += direction==="next"?1:-1;
+  renderScene();
+  story.classList.remove("transition-out-next","transition-out-prev");
+  story.classList.add(direction==="next"?"transition-in-next":"transition-in-prev");
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+   story.classList.remove("transition-in-next","transition-in-prev");
+   transitionBusy=false;
+  }));
+ },wait);
+}
+function nextScene(){moveScene("next")}
+function prevScene(){moveScene("prev")}
 function introAgain(){showScreen("intro");$("blackout").classList.remove("off");setTimeout(()=>{if($("intro").classList.contains("active")){showScreen("welcome");$("blackout").classList.add("off");document.querySelector(".wet-glass").classList.add("visible")}},2300)}
 function updateMusicUI(){const a=$("audio"),playing=!a.paused&&!a.ended;$("trackTitle").textContent=MUSIC[trackIndex].title;$("trackArtist").textContent=MUSIC[trackIndex].artist;$("playPause").textContent=playing?"Ⅱ":"▶";$("playPause").setAttribute("aria-label",playing?"Jeda musik":"Putar musik");$("musicStatus").textContent=playing?"Sedang diputar":"Musik mati · tekan play untuk mulai";$("record").classList.toggle("spinning",playing);$("miniRecord").classList.toggle("spinning",playing)}
 function loadTrack(i,autoplay=false){trackIndex=(i+MUSIC.length)%MUSIC.length;const a=$("audio");a.src=MUSIC[trackIndex].src;a.load();updateMusicUI();if(autoplay)a.play().then(updateMusicUI).catch(()=>{$("musicStatus").textContent="File belum tersedia; cek nama file lagu."})}
