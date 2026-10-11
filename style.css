@@ -71,3 +71,76 @@
 @keyframes signatureSweepGlow{0%{opacity:0;background-position:145% center;filter:drop-shadow(0 0 0 #a6e2ff)}14%{opacity:.25}28%{opacity:1;filter:drop-shadow(0 0 12px #a6e2ff) drop-shadow(0 0 25px #69bdff)}48%{opacity:.9;background-position:35% center;filter:drop-shadow(0 0 16px #e4f8ff) drop-shadow(0 0 36px #69bdff) drop-shadow(0 0 50px #4daaff85)}70%{opacity:.35;background-position:-25% center}88%,100%{opacity:0;background-position:-45% center;filter:drop-shadow(0 0 0 #a6e2ff)}}
 @media(max-width:760px){.word-rain::before{inset:0;filter:drop-shadow(0 0 9px #a6e2ff) drop-shadow(0 0 22px #69bdff) drop-shadow(0 0 34px #4daaff85)}}
 @media(prefers-reduced-motion:reduce){.word-rain::before{animation:none!important;opacity:0!important}.word-rain{filter:none!important}}
+
+
+/* WELCOME HEADING — same icy glow + radial rays language as the signature intro */
+.welcome-card h2{
+  position:relative;
+  isolation:isolate;
+  text-shadow:0 0 12px #a9dcff18;
+  animation:welcomeTitleReveal .9s .12s both,welcomeTitleGlow 4.2s 1s ease-in-out infinite;
+}
+.welcome-card h2::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  pointer-events:none;
+  left:50%;
+  top:52%;
+  width:125%;
+  height:180%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(ellipse at center,#8fd5ff42 0%,#65bfff20 28%,transparent 69%);
+  filter:blur(19px);
+  opacity:0;
+  animation:welcomeTitleHalo 3.6s .18s ease-out both;
+}
+.welcome-card h2::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  pointer-events:none;
+  left:50%;
+  top:52%;
+  width:130%;
+  height:200%;
+  transform:translate(-50%,-50%) scale(.72) rotate(-8deg);
+  background:repeating-conic-gradient(from -10deg at 50% 50%,transparent 0deg 7deg,#bfeaff65 7.2deg 7.7deg,transparent 8deg 15deg);
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 0%,#000 17%,transparent 70%);
+  mask-image:radial-gradient(ellipse at center,#000 0%,#000 17%,transparent 70%);
+  filter:blur(3px);
+  opacity:0;
+  animation:welcomeTitleRays 3.5s .25s cubic-bezier(.16,.7,.25,1) both;
+}
+@keyframes welcomeTitleReveal{
+  from{opacity:0;filter:blur(8px);transform:translateY(8px)}
+  to{opacity:1;filter:blur(0);transform:translateY(0)}
+}
+@keyframes welcomeTitleGlow{
+  0%,100%{text-shadow:0 0 12px #a9dcff18}
+  40%{text-shadow:0 0 13px #bde8ff72,0 0 30px #75caff38}
+  60%{text-shadow:0 0 17px #d8f4ff80,0 0 39px #75caff52}
+}
+@keyframes welcomeTitleHalo{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.72)}
+  20%{opacity:1}
+  48%{opacity:.78;transform:translate(-50%,-50%) scale(1)}
+  78%{opacity:.22}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.12)}
+}
+@keyframes welcomeTitleRays{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.72) rotate(-8deg)}
+  14%{opacity:.9}
+  30%{opacity:.65;transform:translate(-50%,-50%) scale(.94) rotate(-2deg)}
+  56%{opacity:.34;transform:translate(-50%,-50%) scale(1.08) rotate(1deg)}
+  82%{opacity:.1}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.16) rotate(3deg)}
+}
+@media(max-width:760px){
+  .welcome-card h2::before{width:145%;height:175%;filter:blur(15px)}
+  .welcome-card h2::after{width:145%;height:190%;filter:blur(3px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .welcome-card h2,.welcome-card h2::before,.welcome-card h2::after{animation:none;opacity:1}
+  .welcome-card h2::before,.welcome-card h2::after{opacity:0}
+}
