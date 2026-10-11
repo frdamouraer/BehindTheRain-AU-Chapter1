@@ -54,3 +54,12 @@
 @keyframes titleGlowFlash{0%{opacity:0;transform:scale(.72)}18%{opacity:.85}38%{opacity:.55;transform:scale(1)}68%{opacity:.2}100%{opacity:0;transform:scale(1.12)}}
 @media(max-width:760px){.signature::before{left:-8%;top:clamp(76px,18vw,108px);width:110vw;height:220px;filter:blur(4px)}.word-rain{filter:drop-shadow(0 0 11px #78caff40)}.word-rain::after{inset:-8% -5%;filter:blur(3px)}}
 @media(prefers-reduced-motion:reduce){.signature::before,.signature h1::after{animation:none;opacity:0}}
+
+/* Farid signature: stronger living glow and a moving silver-blue sparkle */
+.word-rain{filter:drop-shadow(0 0 11px #83cffff0) drop-shadow(0 0 27px #65bfffb0);animation:wordReveal .9s .52s both,gradientFlow 4.6s 1.3s ease-in-out infinite,rainTextGlow 3.8s 1.4s ease-in-out infinite}
+.word-rain::before{content:"";position:absolute;inset:-3% -1%;z-index:1;pointer-events:none;background:linear-gradient(112deg,transparent 0%,transparent 35%,#ffffff00 42%,#f5fcff 48%,#b6e8ff 51%,#ffffff00 59%,transparent 66%,transparent 100%);background-size:260% 100%;background-position:150% center;background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;mix-blend-mode:screen;opacity:0;filter:blur(.35px);animation:textShimmer 3.7s 1.6s ease-in-out infinite}
+.word-rain::after{background:repeating-conic-gradient(from -10deg at 48% 52%,transparent 0deg 8deg,#bfeaff80 8.2deg 8.8deg,transparent 9deg 17deg)}
+@keyframes rainTextGlow{0%,100%{filter:drop-shadow(0 0 11px #83cffff0) drop-shadow(0 0 27px #65bfffb0)}35%{filter:drop-shadow(0 0 16px #a7e2ffff) drop-shadow(0 0 36px #65bfffdf) drop-shadow(0 0 55px #4aaaff85)}58%{filter:drop-shadow(0 0 21px #d6f3ff) drop-shadow(0 0 45px #65bffff0) drop-shadow(0 0 68px #4aaaffaa)}}
+@keyframes textShimmer{0%,12%{opacity:0;background-position:150% center}22%{opacity:1}43%{opacity:.82;background-position:0% center}55%{opacity:0;background-position:-40% center}100%{opacity:0;background-position:-40% center}}
+@media(max-width:760px){.word-rain{filter:drop-shadow(0 0 12px #78caffc0) drop-shadow(0 0 27px #78caff85)}.word-rain::before{inset:-3% -1%}}
+@media(prefers-reduced-motion:reduce){.word-rain::before{animation:none;opacity:0}.word-rain{animation:wordReveal .9s .52s both;filter:drop-shadow(0 0 12px #83cfff90)}}
