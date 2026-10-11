@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#030507"><meta name="description" content="BEHIND THE RAIN — AU Chapter 1">
+<title>BEHIND THE RAIN — Chapter 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="blackout" id="blackout" aria-hidden="true"></div>
+<div class="wet-glass" aria-hidden="true"><div class="blurred-world"></div><div class="rain-streaks"></div><div class="droplets" id="droplets"></div><div class="glass-shine"></div></div>
+<header class="topbar" id="topbar">
+  <a href="#" id="brandHome" class="brand" aria-label="Kembali ke intro">BTR <span>/ AU</span></a>
+  <div class="progress-wrap"><div class="progress-label"><span id="sceneLabel">ADEGAN 01 / 20</span><span id="eraLabel">PRESENT DAY</span></div><div class="progress-track"><div id="progressBar"></div></div></div>
+  <button class="restart" id="restartTop" aria-label="Kembali ke intro" title="Kembali ke intro">↺</button>
+</header>
+<main>
+<section class="screen intro active" id="intro" aria-label="Signature intro">
+  <div class="signature">
+    <div class="signature-kicker"><i></i>A STORY IN THE RAIN</div>
+    <h1><span class="word-behind">Behind</span><span class="word-rain">the Rain.</span></h1>
+    <div class="chapter-mark">CHAPTER 1</div>
+    <p class="signature-tagline">Ada cerita yang nggak perlu buru-buru dipahami.</p>
+  </div>
+</section>
+<section class="screen welcome" id="welcome">
+  <span class="eyebrow">A LITTLE NOTE BEFORE YOU BEGIN</span>
+  <article class="welcome-card glass">
+    <span class="spark">✧</span>
+    <h2>Sebelum ceritanya dimulai…</h2>
+    <p>Terima kasih sudah mampir dan meluangkan waktu untuk membaca cerita ini. Nggak perlu buru-buru. Ikuti saja ceritanya, satu adegan demi satu adegan.</p>
+    <button class="primary" id="startReading">Mulai Membaca <span>→</span></button>
+  </article>
+  <span class="footnote">TAKE YOUR TIME · READ AT YOUR OWN PACE</span>
+</section>
+<section class="screen story" id="story">
+  <div class="scene-head"><div><span class="eyebrow" id="sceneEra">PRESENT DAY</span><h2 id="sceneTitle">A Familiar Name</h2></div><span class="scene-count" id="sceneCount">01 — 20</span></div>
+  <article class="narrative-card glass" id="narrativeCard"><span class="section-label">NARRATION</span><div id="narrative"></div></article>
+  <section class="social-section" id="socialSection" aria-label="Tweet atau percakapan" hidden>
+    <div class="social-topline"><span class="section-label" id="socialType">SOCIAL FEED</span><span class="social-caption" id="socialCaption"></span></div>
+    <div id="socialContent"></div>
+  </section>
+  <div class="scene-bottom"><p id="sceneNote"></p><nav class="scene-nav" aria-label="Navigasi adegan"><button class="secondary" id="prevScene">← Sebelumnya</button><button class="primary" id="nextScene">Lanjut <span>→</span></button></nav></div>
+</section>
+<section class="screen ending" id="ending">
+  <span class="eyebrow">END OF CHAPTER 01</span>
+  <article class="ending-card glass">
+    <span class="spark">✧</span><p class="ending-quote">Some stories don't end when we leave.</p><div class="end-line"></div>
+    <h2>Chapter 1</h2><p class="coming">CHAPTER 2 <strong>COMING SOON</strong></p>
+    <p class="end-copy">Cerita ini belum selesai. Masih ada hal-hal yang belum terungkap.</p>
+    <p class="thanks-copy">Terima kasih sudah membaca sampai akhir. Sampai bertemu lagi di kelanjutan ceritanya. 💙</p>
+    <div class="end-actions"><button class="primary" id="readAgain">Baca Ulang Chapter 1 <span>↺</span></button><span class="secondary disabled">Chapter 2 belum tersedia</span></div>
+  </article>
+  <p class="disclaimer">Cerita terinspirasi pengalaman nyata. Sebagian dialog adalah rekonstruksi kreatif, bukan transkrip percakapan asli.</p>
+</section>
+</main>
+<aside class="music-player" id="musicPlayer" aria-label="Music player">
+  <div class="music-expanded" id="musicExpanded">
+    <div class="music-heading"><span>LAGU REKOMENDASI UNTUK MEMBACA CERITA INI</span></div>
+    <div class="music-track"><div class="record" id="record">♪</div><div class="track-copy"><strong id="trackTitle">Song 01</strong><small id="trackArtist">Tambahkan judul dan artis</small></div></div>
+    <div class="audio-track"><span id="audioProgress"></span></div>
+    <div class="music-controls"><button id="previousTrack" aria-label="Lagu sebelumnya" title="Sebelumnya">|◀</button><button class="play-pause" id="playPause" aria-label="Putar musik" title="Putar">▶</button><button id="nextTrack" aria-label="Lagu berikutnya" title="Berikutnya">▶|</button></div>
+    <div class="music-footer"><span id="musicStatus">Musik mati · tekan play untuk mulai</span><button id="minimizeMusic" aria-label="Kecilkan music player" title="Kecilkan">−</button></div>
+  </div>
+  <button class="music-collapsed" id="expandMusic" aria-label="Buka music player" title="Buka music player"><span class="mini-record" id="miniRecord">♪</span></button>
+</aside>
+<audio id="audio" preload="none"></audio>
+<script src="script.js"></script>
+</body></html>
