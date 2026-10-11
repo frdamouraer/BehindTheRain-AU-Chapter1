@@ -190,7 +190,8 @@ function renderSocial(s){
 function renderScene(){
  const s=scenes[sceneIndex];$("sceneEra").textContent=s.era;$("eraLabel").textContent=s.era;$("sceneTitle").textContent=s.title;
  const era=s.era||"";
- document.body.dataset.theme=era.includes("CONFESSION")?"confession":era.includes("FIRST DM")||era.includes("GETTING CLOSER")?"connection":era.includes("LEAVING")||era.includes("AFTER LEAVING")?"afterglow":era.includes("FLASHBACK")||era.includes("POTTERHEAD")?"memory":"present";
+ const nextTheme=era.includes("CONFESSION")?"confession":era.includes("FIRST DM")||era.includes("GETTING CLOSER")?"connection":era.includes("LEAVING")||era.includes("AFTER LEAVING")?"afterglow":era.includes("FLASHBACK")||era.includes("POTTERHEAD")?"memory":"present";
+ applyBackgroundTheme(nextTheme);
  const narrative=$("narrative");narrative.replaceChildren(...s.narration.map(t=>{const p=document.createElement("p");p.textContent=t;return p}));
  // Re-trigger the entrance animation for both narration and social cards.
  $("narrativeCard").classList.remove("re-enter");void $("narrativeCard").offsetWidth;$("narrativeCard").classList.add("re-enter");
@@ -202,12 +203,29 @@ function renderScene(){
  $("nextScene").innerHTML=sceneIndex===scenes.length-1?'Penutup Chapter 1 <span>→</span>':'Lanjut <span>→</span>';
  window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
 }
+let themeSwipeDirection="next";
+function applyBackgroundTheme(nextTheme){
+ const world=document.querySelector(".blurred-world"),layer=$("themeSwipeLayer");
+ if(!world||!layer)return;
+ const current=world.dataset.theme||"present";
+ if(current===nextTheme)return;
+ const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+ layer.classList.remove("swipe-in-left","swipe-in-right");
+ layer.dataset.theme=nextTheme;
+ if(reduced){world.dataset.theme=nextTheme;layer.style.opacity="0";return}
+ layer.style.opacity="0";void layer.offsetWidth;
+ layer.classList.add(themeSwipeDirection==="prev"?"swipe-in-right":"swipe-in-left");
+ layer.style.opacity="";
+ const finish=()=>{world.dataset.theme=nextTheme;layer.classList.remove("swipe-in-left","swipe-in-right");layer.style.opacity="0";layer.removeEventListener("animationend",finish)};
+ layer.addEventListener("animationend",finish,{once:true});
+}
 let transitionBusy=false;
 function moveScene(direction){
  if(transitionBusy)return;
  if(direction==="next"&&sceneIndex>=scenes.length-1){showScreen("ending");return}
  if(direction==="prev"&&sceneIndex<=0)return;
  transitionBusy=true;
+ themeSwipeDirection=direction;
  const story=$("story");
  story.classList.remove("transition-in-next","transition-in-prev","transition-out-next","transition-out-prev");
  story.classList.add(direction==="next"?"transition-out-next":"transition-out-prev");
