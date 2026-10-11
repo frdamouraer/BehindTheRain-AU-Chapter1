@@ -63,3 +63,11 @@
 @keyframes textShimmer{0%,12%{opacity:0;background-position:150% center}22%{opacity:1}43%{opacity:.82;background-position:0% center}55%{opacity:0;background-position:-40% center}100%{opacity:0;background-position:-40% center}}
 @media(max-width:760px){.word-rain{filter:drop-shadow(0 0 12px #78caffc0) drop-shadow(0 0 27px #78caff85)}.word-rain::before{inset:-3% -1%}}
 @media(prefers-reduced-motion:reduce){.word-rain::before{animation:none;opacity:0}.word-rain{animation:wordReveal .9s .52s both;filter:drop-shadow(0 0 12px #83cfff90)}}
+
+/* Signature refinement: let the glow travel across the gradient word instead of glowing constantly */
+.word-rain{filter:none!important;animation:wordReveal .9s .52s both,gradientFlow 4.6s 1.3s ease-in-out infinite!important}
+.word-rain::before{content:"the Rain.";position:absolute;inset:0;z-index:2;pointer-events:none;font:inherit;letter-spacing:inherit;line-height:inherit;white-space:nowrap;background:linear-gradient(108deg,transparent 0%,transparent 31%,#a8ddff00 38%,#a8ddff 44%,#f8fdff 49%,#ffffff 52%,#9edcff 57%,#7fcaff00 65%,transparent 72%);background-size:260% 100%;background-position:145% center;background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;mix-blend-mode:screen;opacity:0;filter:drop-shadow(0 0 9px #a6e2ff) drop-shadow(0 0 20px #69bdff) drop-shadow(0 0 34px #4daaff85);animation:signatureSweepGlow 2.8s .62s cubic-bezier(.2,.7,.22,1) 1 both!important}
+.word-rain::after{animation:rainWordRayFlash 3.2s .45s cubic-bezier(.16,.7,.25,1) both}
+@keyframes signatureSweepGlow{0%{opacity:0;background-position:145% center;filter:drop-shadow(0 0 0 #a6e2ff)}14%{opacity:.25}28%{opacity:1;filter:drop-shadow(0 0 12px #a6e2ff) drop-shadow(0 0 25px #69bdff)}48%{opacity:.9;background-position:35% center;filter:drop-shadow(0 0 16px #e4f8ff) drop-shadow(0 0 36px #69bdff) drop-shadow(0 0 50px #4daaff85)}70%{opacity:.35;background-position:-25% center}88%,100%{opacity:0;background-position:-45% center;filter:drop-shadow(0 0 0 #a6e2ff)}}
+@media(max-width:760px){.word-rain::before{inset:0;filter:drop-shadow(0 0 9px #a6e2ff) drop-shadow(0 0 22px #69bdff) drop-shadow(0 0 34px #4daaff85)}}
+@media(prefers-reduced-motion:reduce){.word-rain::before{animation:none!important;opacity:0!important}.word-rain{filter:none!important}}
