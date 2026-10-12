@@ -127,11 +127,11 @@ const scenes = [
 ],social:{type:"tweet",items:[{name:"END OF CHAPTER 01",handle:"@behindtherain",avatar:"✦",text:"Some stories don't end when we leave.",time:"To be continued…",meta:["CHAPTER 2 · COMING SOON"]}]},note:"Misteri grup tetap tidak dijelaskan sampai Chapter 2."}
 ];
 const MUSIC=[
-{title:"Song 01",artist:"Tambahkan judul dan artis",src:"assets/music/song-01.mp3"},
-{title:"Song 02",artist:"Tambahkan judul dan artis",src:"assets/music/song-02.mp3"},
-{title:"Song 03",artist:"Tambahkan judul dan artis",src:"assets/music/song-03.mp3"},
-{title:"Song 04",artist:"Tambahkan judul dan artis",src:"assets/music/song-04.mp3"},
-{title:"Song 05",artist:"Tambahkan judul dan artis",src:"assets/music/song-05.mp3"}
+{title:"Bercinta Lewat Kata",artist:"Donne Maula",src:"assets/music/song-01.mp3"},
+{title:"Love Story",artist:"Taylor Swift",src:"assets/music/song-02.mp3"},
+{title:"Hujan",artist:"Utopia",src:"assets/music/song-03.mp3"},
+{title:"Siapkah Kau 'Tuk Jatuh Cinta Lagi",artist:"HIVI!",src:"assets/music/song-04.mp3"},
+{title:"1000x",artist:"Ghea Indrawari",src:"assets/music/song-05.mp3"}
 ];
 const $=id=>document.getElementById(id), screens=["intro","welcome","story","ending"].map($);
 let sceneIndex=0,trackIndex=0,idleTimer=null,started=false;
