@@ -61,7 +61,9 @@
   <div class="music-expanded" id="musicExpanded">
     <div class="music-heading"><span>LAGU REKOMENDASI UNTUK MEMBACA CERITA INI</span></div>
     <div class="music-track"><div class="record" id="record">♪</div><div class="track-copy"><strong id="trackTitle">Song 01</strong><small id="trackArtist">Tambahkan judul dan artis</small></div></div>
-    <div class="audio-track"><span id="audioProgress"></span></div>
+    <div class="audio-time-row"><span id="currentTime">0:00</span><span id="durationTime">0:00</span></div>
+    <input class="audio-seek" id="audioSeek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Posisi lagu" title="Geser untuk memilih waktu lagu">
+    <div class="volume-row"><label for="audioVolume">VOLUME</label><input class="audio-volume" id="audioVolume" type="range" min="0" max="1" step="0.01" value="0.65" aria-label="Volume musik"><span id="volumeValue">65%</span></div>
     <div class="music-controls"><button id="previousTrack" aria-label="Lagu sebelumnya" title="Sebelumnya">|◀</button><button class="play-pause" id="playPause" aria-label="Putar musik" title="Putar">▶</button><button id="nextTrack" aria-label="Lagu berikutnya" title="Berikutnya">▶|</button></div>
     <div class="music-footer"><span id="musicStatus">Musik mati · tekan play untuk mulai</span><button id="minimizeMusic" aria-label="Kecilkan music player" title="Kecilkan">−</button></div>
   </div>
