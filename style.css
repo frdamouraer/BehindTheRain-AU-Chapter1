@@ -171,3 +171,27 @@
 .audio-seek::-moz-range-thumb{
   box-shadow:0 0 7px #bdeaff,0 0 15px #8bd5ffb8,0 0 25px #78caff66!important;
 }
+
+
+/* Active music progress: flowing icy-blue / white current-time trail */
+.audio-seek{
+  --range-fill:0%;
+  background:
+    linear-gradient(90deg,#bdeaff 0%,#8bd5ff 26%,#f5fdff 48%,#8bd5ff 67%,#c6eaff 82%,#fff 100%) 0 0/var(--range-fill) 100% no-repeat,
+    #c6e7ff24!important;
+  animation:seekCurrentFlow 2.2s linear infinite;
+  box-shadow:0 0 8px #8bd5ff35,inset 0 0 2px #bdeaff45;
+}
+@keyframes seekCurrentFlow{
+  from{background-position:0% 50%,0 0}
+  to{background-position:100% 50%,0 0}
+}
+.audio-seek::-webkit-slider-thumb{
+  background:#effbff!important;
+  box-shadow:0 0 5px #fff,0 0 11px #bdeaff,0 0 19px #8bd5ff,0 0 29px #65bdff90!important;
+}
+.audio-seek::-moz-range-thumb{
+  background:#effbff!important;
+  box-shadow:0 0 5px #fff,0 0 11px #bdeaff,0 0 19px #8bd5ff,0 0 29px #65bdff90!important;
+}
+@media(prefers-reduced-motion:reduce){.audio-seek{animation:none}}
