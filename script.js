@@ -255,7 +255,7 @@ function syncMusicProgress(){
   const percent=Math.max(0,Math.min(100,(a.currentTime/a.duration)*100));
   if(!seek.matches(":active"))seek.value=String(percent);
   seek.style.setProperty("--range-fill",percent+"%");
-  $("audioProgress").style.width=percent+"%";
+  const progress=$("audioProgress");if(progress)progress.style.width=percent+"%";
  }
  $("currentTime").textContent=formatTime(a.currentTime);
  $("durationTime").textContent=formatTime(a.duration);
