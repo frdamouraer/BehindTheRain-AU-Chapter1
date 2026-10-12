@@ -158,3 +158,16 @@
 .audio-volume{flex:1;height:3px}
 .volume-row span{width:30px;text-align:right;font-size:9px;font-variant-numeric:tabular-nums;color:#b9d5e9}
 @media(prefers-reduced-motion:reduce){.audio-seek,.audio-volume{scroll-behavior:auto}}
+
+
+/* Icy blue gradient + glow behind the music seek thumb */
+.audio-seek{
+  background:linear-gradient(90deg,#bdeaff 0%,#8bd5ff 42%,#b8caff 76%,#e3f8ff 100%) 0 0/var(--range-fill,0%) 100% no-repeat,#c6e7ff24!important;
+  box-shadow:0 0 8px #8bd5ff38,inset 0 0 2px #bdeaff40;
+}
+.audio-seek::-webkit-slider-thumb{
+  box-shadow:0 0 7px #bdeaff,0 0 15px #8bd5ffb8,0 0 25px #78caff66!important;
+}
+.audio-seek::-moz-range-thumb{
+  box-shadow:0 0 7px #bdeaff,0 0 15px #8bd5ffb8,0 0 25px #78caff66!important;
+}
