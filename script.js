@@ -247,6 +247,22 @@ function prevScene(){moveScene("prev")}
 function introAgain(){showScreen("intro");$("blackout").classList.remove("off");setTimeout(()=>{if($("intro").classList.contains("active")){showScreen("welcome");$("blackout").classList.add("off");document.querySelector(".wet-glass").classList.add("visible")}},2300)}
 function formatTime(seconds){if(!Number.isFinite(seconds)||seconds<0)return "0:00";const mins=Math.floor(seconds/60),secs=Math.floor(seconds%60);return mins+":"+String(secs).padStart(2,"0")}
 function updateTimeUI(){const a=$("audio"),seek=$("audioSeek");$("currentTime").textContent=formatTime(a.currentTime);$("durationTime").textContent=formatTime(a.duration);if(Number.isFinite(a.duration)&&a.duration>0&&!seek.matches(":active"))seek.value=(a.currentTime/a.duration)*100;seek.style.setProperty("--range-fill",seek.value+"%")}
+let musicFrame=0;
+function syncMusicProgress(){
+ const a=$("audio"),seek=$("audioSeek");
+ if(!a||!seek)return;
+ if(Number.isFinite(a.duration)&&a.duration>0){
+  const percent=Math.max(0,Math.min(100,(a.currentTime/a.duration)*100));
+  if(!seek.matches(":active"))seek.value=String(percent);
+  seek.style.setProperty("--range-fill",percent+"%");
+  $("audioProgress").style.width=percent+"%";
+ }
+ $("currentTime").textContent=formatTime(a.currentTime);
+ $("durationTime").textContent=formatTime(a.duration);
+ if(!a.paused&&!a.ended)musicFrame=requestAnimationFrame(syncMusicProgress);
+ else musicFrame=0;
+}
+function startMusicProgress(){if(!musicFrame)musicFrame=requestAnimationFrame(syncMusicProgress)}
 function updateMusicUI(){const a=$("audio"),playing=!a.paused&&!a.ended;$("trackTitle").textContent=MUSIC[trackIndex].title;$("trackArtist").textContent=MUSIC[trackIndex].artist;$("playPause").textContent=playing?"Ⅱ":"▶";$("playPause").setAttribute("aria-label",playing?"Jeda musik":"Putar musik");$("musicStatus").textContent=playing?"Sedang diputar":"Musik mati · tekan play untuk mulai";$("record").classList.toggle("spinning",playing);$("miniRecord").classList.toggle("spinning",playing);updateTimeUI()}
 function loadTrack(i,autoplay=false){trackIndex=(i+MUSIC.length)%MUSIC.length;const a=$("audio");a.src=MUSIC[trackIndex].src;a.load();updateMusicUI();if(autoplay)a.play().then(updateMusicUI).catch(()=>{$("musicStatus").textContent="File belum tersedia; cek nama file lagu."})}
 function toggleMusic(){const a=$("audio");if(a.paused){if(!a.src)loadTrack(trackIndex);a.play().then(updateMusicUI).catch(()=>{$("musicStatus").textContent="Tambahkan file lagu lalu tekan Play."})}else{a.pause();updateMusicUI()}}
@@ -260,7 +276,7 @@ $("minimizeMusic").addEventListener("click",minimizeMusic);$("expandMusic").addE
 $("audioVolume").addEventListener("input",e=>{const value=Number(e.target.value);$("audio").volume=value;$("volumeValue").textContent=Math.round(value*100)+"%"});$("audio").volume=Number($("audioVolume").value);
 $("audioSeek").addEventListener("input",e=>{const a=$("audio"),seek=e.target;seek.style.setProperty("--range-fill",seek.value+"%");if(Number.isFinite(a.duration)&&a.duration>0){const t=(Number(seek.value)/100)*a.duration;$("currentTime").textContent=formatTime(t);$("audioProgress").style.width=seek.value+"%"}});
 $("audioSeek").addEventListener("change",e=>{const a=$("audio");if(Number.isFinite(a.duration)&&a.duration>0)a.currentTime=(Number(e.target.value)/100)*a.duration;updateTimeUI()});
-$("audio").addEventListener("loadedmetadata",updateTimeUI);$("audio").addEventListener("durationchange",updateTimeUI);$("audio").addEventListener("timeupdate",()=>{const a=$("audio");if(a.duration){$("audioProgress").style.width=(a.currentTime/a.duration*100)+"%";updateTimeUI()}});$("audio").addEventListener("play",updateMusicUI);$("audio").addEventListener("pause",updateMusicUI);$("audio").addEventListener("ended",()=>loadTrack(trackIndex+1,true));
+$("audio").addEventListener("loadedmetadata",()=>{updateTimeUI();syncMusicProgress()});$("audio").addEventListener("durationchange",updateTimeUI);$("audio").addEventListener("timeupdate",syncMusicProgress);$("audio").addEventListener("play",()=>{updateMusicUI();startMusicProgress()});$("audio").addEventListener("pause",()=>{updateMusicUI();if(musicFrame){cancelAnimationFrame(musicFrame);musicFrame=0}syncMusicProgress()});$("audio").addEventListener("seeked",syncMusicProgress);$("audio").addEventListener("ended",()=>loadTrack(trackIndex+1,true));
 document.addEventListener("keydown",e=>{if($("story").classList.contains("active")){if(e.key==="ArrowRight")nextScene();if(e.key==="ArrowLeft")prevScene()}});
 createDrops();loadTrack(0,false);
 setTimeout(()=>{if($("intro").classList.contains("active")){showScreen("welcome");$("blackout").classList.add("off");document.querySelector(".wet-glass").classList.add("visible")}},2400);
