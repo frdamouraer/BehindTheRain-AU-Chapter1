@@ -93,7 +93,7 @@ const scenes = [
 "Yang dia terima adalah penolakan. Jawaban yang sederhana, tetapi cukup untuk membuat harapan yang sudah dia kumpulkan selama ini harus berhadapan dengan kenyataan.",
 "Mungkin sebelum mengungkapkan perasaannya, Emon sempat membayangkan banyak kemungkinan. Namun, menghadapi jawaban yang sebenarnya terasa berbeda dari membayangkannya sendiri.",
 "Dia berusaha merespons seolah semuanya baik-baik saja. Setidaknya, dia tidak ingin membuat Ruby merasa bersalah karena tidak memiliki perasaan yang sama."
-],social:{type:"dm",contact:"Ruby",subtitle:"Direct Message · important moment",items:[{side:"left",name:"RUBY",text:"emon, kita kan sebatas teman, jangan sada hubungan dong, nanti asing emg mau?"},{side:"left",name:"RUBY",text:"btw i gak bisa bales perasaan kamu"},{side:"right",name:"EMON",text:"ehh, PRANKKKK"}]},note:"Kenapa sih ruby gamau ama gw, besok gw jdi cedric aja deh"},
+],social:{type:"dm",contact:"Ruby",subtitle:"Direct Message · important moment",items:[{side:"left",name:"RUBY",text:"emon, kita kan sebatas teman, jangan ada hubungan dong, nanti asing emg mau?"},{side:"left",name:"RUBY",text:"btw i gak bisa bales perasaan kamu"},{side:"right",name:"EMON",text:"ehh, PRANKKKK"}]},note:"Kenapa sih ruby gamau ama gw, besok gw jdi cedric aja deh"},
 {era:"2022 · AFTER THE CONFESSION",title:"Five Times, Maybe",narration:[
 "Pengakuan itu bukan satu-satunya kali Emon berharap hubungan mereka bisa berubah. Dalam ingatannya, dia sempat mencoba lagi beberapa kali—kurang lebih lima kali, meski detail dan urutannya tidak lagi dia ingat dengan pasti.",
 "Kadang harapan itu muncul kembali setelah obrolan yang menyenangkan. Kadang dia kembali menggoda Ruby dengan candaan lama, berharap mungkin kali ini situasinya berbeda.",
